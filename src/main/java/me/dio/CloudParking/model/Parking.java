@@ -1,9 +1,13 @@
 package me.dio.CloudParking.model;
 
-import java.awt.geom.RoundRectangle2D;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.time.LocalDateTime;
 
+@Entity
 public class Parking {
+
+    @Id
     private String id;
     private String license;
     private String state;
@@ -15,6 +19,10 @@ public class Parking {
 
     public Parking(String id, String license, String state, String model, String color) {
         this.id = id;
+        this.license = license;
+        this.state = state;
+        this.model = model;
+        this.color = color;
     }
 
     public Parking() {
@@ -60,4 +68,28 @@ public class Parking {
         this.color = color;
     }
 
+    public LocalDateTime getEntryDate() {
+        return entryDate;
+    }
+
+    public void setEntryDate(LocalDateTime entryDate) {
+        this.entryDate = entryDate;
+    }
+    public LocalDateTime getExitDate() {
+        return exitDate;
+    }
+
+    public void setExitDate(LocalDateTime now) {
+        this.exitDate = exitDate;
+    }
+
+    public Double getBill() {
+        return bill;
+    }
+
+    public void setBill(Double bill) {
+        this.bill = bill;
+    }
+
+    public void orElseThrow(Object o) {}
 }
